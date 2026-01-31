@@ -4,13 +4,16 @@ config();
 config({ path: `.env.${process.env.NODE_ENV || "development"}.local` });
 
 const PORT_RAW = process.env.PORT;
+const DB_URI = process.env.DB_URI;
+
+if (!DB_URI) {
+  throw new Error("❌ DB_URI is not defined in environment variables");
+}
 
 export const env = {
   NODE_ENV: process.env.NODE_ENV ?? "development",
-
   PORT: PORT_RAW ? Number(PORT_RAW) : 3000,
-
-  DATABASE_URL: process.env.DATABASE_URL,
+  DB_URI
 };
 
 if (Number.isNaN(env.PORT)) {

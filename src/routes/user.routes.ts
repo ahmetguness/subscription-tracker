@@ -1,16 +1,26 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 
 const userRouter = Router();
 
-userRouter.get('/', (req, res) => res.send({ title: 'GET all users' }));
+userRouter.get("/", (req: Request, res: Response) => {
+  res.send({ title: "GET all users" });
+});
 
-userRouter.get('/:id', (req, res) => res.send({ title: 'GET user details' }));
+userRouter.get("/:id", (req: Request, res: Response) => {
+  res.send({ title: "GET user details" });
+});
 
-userRouter.post('/', (req, res) => res.send({ title: 'Create a new user' }));
+userRouter.post("/", (req: Request, res: Response) => {
+  res.send({ title: "Create a new user" });
+});
 
-userRouter.put('/:id', (req, res) => res.send({ title: 'Update user by id' }));
+userRouter.put("/:id", (req: Request, res: Response) => {
+  res.send({ title: "Update user by id" });
+});
 
-userRouter.delete('/:id', (req, res) => res.send({ title: 'Delete user by id' }));
+userRouter.delete("/:id", (req: Request, res: Response) => {
+  res.send({ title: "Delete user by id" });
+});
 
 export default userRouter;
 
