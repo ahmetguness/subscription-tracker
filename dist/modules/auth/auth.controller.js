@@ -42,13 +42,13 @@ export const signIn = async (req, res, next) => {
         const normalizedEmail = email.trim().toLowerCase();
         const user = await User.findOne({ email: normalizedEmail });
         if (!user) {
-            const error = new Error("Invalid credentials");
+            const error = new Error("User doesnt exist");
             error.statusCode = 401;
             throw error;
         }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            const error = new Error("Invalid credentials");
+            const error = new Error("Invalid password");
             error.statusCode = 401;
             throw error;
         }

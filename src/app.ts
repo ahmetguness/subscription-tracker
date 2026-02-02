@@ -1,11 +1,20 @@
+process.on("uncaughtException", (err) => {
+  console.error("uncaughtException:", err);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("unhandledRejection:", reason);
+});
+
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import { env } from "./config/env.js";
-import userRouter from "./routes/user.routes.js";
-import authRouter from "./routes/auth.routes.js";
-import subscriptionRouter from "./routes/subscription.routes.js";
 import connectToDatabase from "./database/mongodb.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
+import authRouter from "./modules/auth/auth.routes.js";
+import userRouter from "./modules/user/user.routes.js";
+import subscriptionRouter from "./modules/subscriptions/subscription.routes.js";
 
 const app = express();
 

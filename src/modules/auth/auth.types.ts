@@ -3,6 +3,7 @@ export type PublicUser = {
   name: string;
   email: string;
   createdAt?: string;
+  // password: string;
 };
 
 export type SignUpBody = { name: string; email: string; password: string };

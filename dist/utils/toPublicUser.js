@@ -4,5 +4,6 @@ export const toPublicUser = (user) => {
         name: user.name,
         email: user.email,
         createdAt: user.createdAt ? user.createdAt.toISOString() : undefined,
+        // password: user.password,
     };
 };

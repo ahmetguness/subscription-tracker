@@ -6,7 +6,7 @@ type AnyUserLike = {
     name: string;
     email: string;
     createdAt?: Date;
-    password?: string;
+    // password: string;
 };
 
 export const toPublicUser = (user: AnyUserLike): PublicUser => {
@@ -15,5 +15,6 @@ export const toPublicUser = (user: AnyUserLike): PublicUser => {
         name: user.name,
         email: user.email,
         createdAt: user.createdAt ? user.createdAt.toISOString() : undefined,
+        // password: user.password,
     };
 };
